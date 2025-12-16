@@ -1,0 +1,32 @@
+{
+  "sessions": [
+    {
+      "id": "session-123",
+      "title": "Sales Report",
+      "messages": [
+        {
+          "question": "Show me sales data",
+          "answer": {
+            "description": "Monthly sales data",
+            "table": [
+              {
+                "month": "Jan",
+                "sales": 1200
+              },
+              {
+                "month": "Feb",
+                "sales": 1500
+              }
+            ]
+          },
+          "feedback": null
+        }
+      ]
+    },
+    {
+      "id": "session-1765920954589",
+      "title": "New Chat",
+      "messages": []
+    }
+  ]
+}
