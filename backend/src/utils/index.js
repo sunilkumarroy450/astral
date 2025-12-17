@@ -1,4 +1,4 @@
-// Mock responses that match frontend table structure
+// MOCK_RESPONSES for chat responses
 const MOCK_RESPONSES = [
   {
     table: {
@@ -58,3 +58,7 @@ const MOCK_RESPONSES = [
       "Follow this structured approach for successful campaign execution.",
   },
 ];
+
+module.exports = {
+  MOCK_RESPONSES,
+};

@@ -1,1 +1,58 @@
 @import "tailwindcss";
+
+/* FORCE DARK MODE - Tailwind v4 Fix */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark,
+html.dark body {
+  background-color: #111827 !important; /* gray-900 */
+  color: #f9fafb !important; /* gray-50 */
+}
+
+/* Cards & Backgrounds */
+html.dark .bg-white {
+  background-color: #1f2937 !important;
+} /* gray-800 */
+html.dark .bg-gray-50 {
+  background-color: #1f2937 !important;
+}
+html.dark .bg-gray-800 {
+  background-color: #1f2937 !important;
+}
+
+/* Text Colors */
+html.dark .text-gray-900 {
+  color: #f9fafb !important;
+} /* white */
+html.dark .text-gray-700 {
+  color: #d1d5db !important;
+} /* gray-300 */
+html.dark .text-gray-500 {
+  color: #9ca3af !important;
+} /* gray-400 */
+
+/* Borders */
+html.dark .border-gray-200 {
+  border-color: #374151 !important;
+} /* gray-600 */
+html.dark .border-gray-700 {
+  border-color: #374151 !important;
+}
+
+/* Tables */
+html.dark table {
+  background-color: #1f2937 !important;
+}
+html.dark thead {
+  background-color: #374151 !important;
+} /* gray-700 */
+html.dark tbody tr:hover {
+  background-color: #4b5563 !important;
+} /* gray-600 */
+
+/* Scrollbars */
+html.dark *::-webkit-scrollbar-thumb {
+  background-color: #6b7280 !important; /* gray-500 */
+}
