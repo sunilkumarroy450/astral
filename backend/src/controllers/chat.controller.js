@@ -4,9 +4,20 @@ const path = require("path");
 const dataPath = path.join(__dirname, "../data/sessions.json");
 const { MOCK_RESPONSES } = require("../utils/index");
 
-const readData = () => JSON.parse(fs.readFileSync(dataPath));
-const writeData = (data) =>
+// ✅ AUTO-CREATE if missing (CRITICAL FOR RENDER)
+const readData = () => {
+  if (!fs.existsSync(dataPath)) {
+    // ✅ Create empty sessions on first run
+    const initialData = { sessions: [] };
+    fs.writeFileSync(dataPath, JSON.stringify(initialData, null, 2));
+    console.log("✅ Created initial sessions.json");
+  }
+  return JSON.parse(fs.readFileSync(dataPath, "utf8"));
+};
+
+const writeData = (data) => {
   fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
+};
 
 // Controllers
 exports.getSessions = (req, res) => {
@@ -17,7 +28,7 @@ exports.getSessions = (req, res) => {
 exports.startNewSession = (req, res) => {
   const data = readData();
 
-  // Check if recent empty session exists (last 5s)
+  // ✅ Check if recent empty session exists (last 5s)
   const now = Date.now();
   const recentEmpty = data.sessions.find(
     (s) =>
