@@ -46,7 +46,6 @@ function AppContent() {
   const togglePanel = () => setIsPanelOpen(!isPanelOpen);
 
   const toggleTheme = () => {
-    console.log("🖱️ Theme toggle clicked!");
     setIsDark((prev) => {
       const newValue = !prev;
       return newValue;
