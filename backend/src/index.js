@@ -13,12 +13,11 @@ app.use(express.json());
 
 app.use("/api", chatRoutes);
 
-app.use(express.static(path.join(__dirname, "../fronted/dist")));
+app.use(express.static(path.join(__dirname, "../../fronted/dist")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../fronted/dist/index.html"));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../fronted/dist/index.html"));
 });
-
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
