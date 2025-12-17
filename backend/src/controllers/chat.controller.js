@@ -4,10 +4,10 @@ const path = require("path");
 const dataPath = path.join(__dirname, "../data/sessions.json");
 const { MOCK_RESPONSES } = require("../utils/index");
 
-// ✅ AUTO-CREATE if missing (CRITICAL FOR RENDER)
+// AUTO-CREATE
 const readData = () => {
   if (!fs.existsSync(dataPath)) {
-    // ✅ Create empty sessions on first run
+    // Create empty sessions on first run
     const initialData = { sessions: [] };
     fs.writeFileSync(dataPath, JSON.stringify(initialData, null, 2));
     console.log("✅ Created initial sessions.json");
@@ -28,7 +28,7 @@ exports.getSessions = (req, res) => {
 exports.startNewSession = (req, res) => {
   const data = readData();
 
-  // ✅ Check if recent empty session exists (last 5s)
+  // Check if recent empty session exists (last 5s)
   const now = Date.now();
   const recentEmpty = data.sessions.find(
     (s) =>
@@ -79,7 +79,7 @@ exports.askQuestion = (req, res) => {
     return res.status(404).json({ error: "Session not found" });
   }
 
-  // ✅ SAFETY: Initialize messages array if undefined
+  //  Initialize messages array if undefined
   if (!data.sessions[sessionIndex].messages) {
     data.sessions[sessionIndex].messages = [];
   }
@@ -102,7 +102,7 @@ exports.askQuestion = (req, res) => {
 
   data.sessions[sessionIndex].messages.push(userMessage, assistantMessage);
 
-  // ✅ SAFETY: Check length safely
+  //  Check length safely
   if (data.sessions[sessionIndex].messages.length === 2) {
     data.sessions[sessionIndex].title =
       question.substring(0, 50) + (question.length > 50 ? "..." : "");
