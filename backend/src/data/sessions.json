@@ -3,30 +3,37 @@
     {
       "id": "session-123",
       "title": "Sales Report",
+      "createdAt": "2025-12-17T09:00:00Z",
       "messages": [
         {
-          "question": "Show me sales data",
-          "answer": {
-            "description": "Monthly sales data",
-            "table": [
-              {
-                "month": "Jan",
-                "sales": 1200
-              },
-              {
-                "month": "Feb",
-                "sales": 1500
-              }
-            ]
+          "role": "user",
+          "content": "Show me sales data",
+          "timestamp": "2025-12-17T09:01:00Z"
+        },
+        {
+          "role": "assistant",
+          "content": "Here's your detailed sales analysis:",
+          "data": {
+            "table": {
+              "headers": ["Month", "Sales", "Growth %", "Target"],
+              "rows": [
+                ["Jan", "1200", "+15%", "1000"],
+                ["Feb", "1500", "+25%", "1300"],
+                ["Mar", "1800", "+20%", "1600"]
+              ]
+            },
+            "description": "Sales are trending upward and exceeding targets consistently."
           },
-          "feedback": null
+          "timestamp": "2025-12-17T09:01:30Z"
         }
       ]
     },
     {
       "id": "session-1765920954589",
       "title": "New Chat",
+      "createdAt": "2025-12-17T09:30:00Z",
       "messages": []
     }
-  ]
+  ],
+  "nextSessionId": 1765920954590
 }
