@@ -7,7 +7,8 @@ export const useChat = (initialSessionId?: string) => {
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const API_BASE = "http://localhost:8080/api";
+  const API_BASE =
+    import.meta.env.MODE === "development" ? "http://localhost:8080/api" : "/";
 
   const fetchSessions = useCallback(async () => {
     try {
